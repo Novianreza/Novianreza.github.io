@@ -1,3 +1,9 @@
+@font-face{
+  font-family: "YujiSyuku";
+  src: url(font/YujiSyuku-Regular.ttf);
+
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,14 +11,14 @@
 }
 
 body {
-  background-color: #dde2e3;
+  background-image: radial-gradient(circle, white, black);
 }
 
 .container {
   width: 80%;
   margin: 7vw auto;
   display: grid;
-  background-color: #9aacb8;
+  background-image: linear-gradient(90deg, white,black,black,white );
 
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
@@ -23,7 +29,6 @@ body {
 }
 
 .item {
-  background-color: #9aacb8;
   width: 100%;
   display: flex;
   justify-content: flex-start;
@@ -35,31 +40,30 @@ body {
     background-color: rgb(255, 142, 142);
 } */
 .name {
+  font-family: yujisyuku, serif, sans-serif;
   color: white;
-  text-shadow: 0 0 5px rgb(80, 194, 223);
+  text-shadow: 0 0 5px black;
   display: block;
   text-align: center;
   grid-area: name;
-  background-color: #fff;
 }
 
 .header {
   padding-right: 20px;
   padding-left: 20px;
   text-decoration: none;
-  color: #000;
+  color: #fff;
   align-items: center;
   grid-area: header;
-  background-color: #fff;
 }
 .sidebar img {
   width: 50%;
   border-radius: 50%;
-  border: 1px solid white;
-  box-shadow: 0 0 5px blue;
+  border: 2px solid black;
+  box-shadow: 0 0 5px black;
 }
 .sidebar {
-  margin-top: 30px;
+  margin-top: 10px;
   align-items: center;
   justify-content: center;
   padding: 0;
@@ -71,9 +75,9 @@ a {
 }
 
 .header a:hover {
-  background-color: rgb(42, 0, 228);
+  background-color: white ;
   border-radius: 50%;
-  color: white;
+  color: black;
   transition-delay: 200ms;
 }
 
@@ -89,21 +93,12 @@ a {
   width: 80px;
   height: 80px;
   margin-right: 10px;
-  background-color: rgb(24, 220, 255);
+  background-color: white;
   transition: 0.3s;
   transition-delay: 240ms;
 }
 .content .about:hover {
-  transform: rotate(360deg);
-  color: white;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 80px;
-  width: 80px;
-  height: 80px;
-  margin-right: 10px;
-  background-color: rgb(29, 184, 211);
-  box-shadow: 0 0 7px red;
+  opacity: 0;
 }
 
 .content .profile {
@@ -114,7 +109,7 @@ a {
   width: 80px;
   height: 80px;
   margin-right: 10px;
-  background-color: rgb(0, 247, 214);
+  background-color: white;
   transition: 0.3s;
   transition-delay: 240ms;
 }
@@ -140,7 +135,7 @@ a {
   width: 80px;
   height: 80px;
   margin-right: 10px;
-  background-color: rgb(21, 255, 0);
+  background-color: white;
   transition: 0.3s;
   transition-delay: 240ms;
 }
@@ -165,12 +160,18 @@ a {
   padding: 5px;
   justify-content: center;
   grid-area: footer;
-  background-color: rgb(151, 60, 151);
 }
 
 .footer .copy {
   color: #eaeaea;
   text-align: center;
+}
+
+.copy{
+  border: 2px solid white;
+  border-radius: 10%;
+  padding-right: 5px;
+  padding-left: 5px;
 }
 
 /* responsif Breakpoint */
