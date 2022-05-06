@@ -5,30 +5,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="main.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> 
     <title>My Website</title>
-</body>
 </head>
 <body>
 
     <div class="container">
         <div class="item name">
-            <h2 class="name" >Novian Reza </h2>
+            <h2 class="name" >Novian Reza </h2> 
             <p class="name">Student</p>
-        </div>
-
-        <div class="item header">
-            <a class="header" href="">About</a>
-            <a class="header" href=""> Profile</a>
-            <a class="header" href="">Contact</a>
         </div>
 
         <div class="item sidebar"><img src="img/hero.jpeg" alt="my foto"></div>
         <div class="item content">
-            <a href=""><div class="about">About</div></a>
-            <a href=""><div class="profile">Profile</div></a>
-            <a href=""><div class="contact">Contact</div></a>
+            <a href="#about"><div class="about">About</div></a>
+
+            <div class="overlay" id="about">
+                <a href="#body" class="close" ><strong><</strong></a><br><br>
+                <h2>About Me</h2><br>
+                <p>Hello My Name Novian Reza Pratama</p>
+                <p>I'am Student from Lampung Indonesia</p>
+                <p>My age 17</p>
+            </div>
+
+            <a href="#project"><div class="project">Project</div></a>
+
+            <div class="overlay" id="project">
+                <a href="#body" class="close" ><strong><</strong></a><br><br>
+                <h2>My Project</h2>
+                <!-- <div class="foto"></div>
+                <div class="slider">
+                  <div class="isi-slider">
+                    <img src="img/hero.jpeg" alt="Gambar 1" />
+                    <img src="img/hero.jpeg" alt="Gambar 2" />
+                    <img src="img/hero.jpeg" alt="Gambar 3" />
+                    <img src="img/hero.jpeg" alt="Gambar 4" />
+                  </div>
+                </div> -->
+                    </div>
+
+            <a href="#contact"><div class="contact">Contact</div></a>
+
+            <div class="overlay" id="contact">
+                <a href="#body" class="close" ><strong><</strong></a><br><br>
+                <h2>Contact Me</h2><br>
+            </div>
+
         </div>
         <div class="item footer"><p class="copy">&#169 Copyright <script>document.write(new Date().getFullYear())</script>
- | Novian Reza Pratama</p></div>
+            | Novian Reza Pratama</p>
+        </div> 
+    </div>
+</body>
 </html>

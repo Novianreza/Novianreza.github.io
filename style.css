@@ -1,8 +1,5 @@
-@font-face{
-  font-family: "YujiSyuku";
-  src: url(font/YujiSyuku-Regular.ttf);
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap');
 
-}
 
 * {
   margin: 0;
@@ -22,7 +19,7 @@ body {
 
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
-    "name header header"
+    "name name name"
     "sidebar content content"
     "sidebar content content"
     "footer footer footer";
@@ -40,7 +37,8 @@ body {
     background-color: rgb(255, 142, 142);
 } */
 .name {
-  font-family: yujisyuku, serif, sans-serif;
+  font-family: 'PT Sans Narrow', sans-serif;
+  letter-spacing: 5px;
   color: white;
   text-shadow: 0 0 5px black;
   display: block;
@@ -48,14 +46,11 @@ body {
   grid-area: name;
 }
 
-.header {
-  padding-right: 20px;
-  padding-left: 20px;
-  text-decoration: none;
-  color: #fff;
-  align-items: center;
-  grid-area: header;
+.name h2{
+  letter-spacing: 10px;
+  line-height: 50px;
 }
+
 .sidebar img {
   width: 50%;
   border-radius: 50%;
@@ -72,13 +67,6 @@ body {
 a {
   text-decoration: none;
   transition: 0.3s;
-}
-
-.header a:hover {
-  background-color: white ;
-  border-radius: 50%;
-  color: black;
-  transition-delay: 200ms;
 }
 
 .content {
@@ -98,10 +86,11 @@ a {
   transition-delay: 240ms;
 }
 .content .about:hover {
-  opacity: 0;
+  background-color: rgba(0,0,0,0);
+  color: white;
 }
 
-.content .profile {
+.content .project {
   color: black;
   border-radius: 50%;
   text-align: center;
@@ -114,17 +103,10 @@ a {
   transition-delay: 240ms;
 }
 
-.content .profile:hover {
-  transform: rotate(360deg);
+.content .project:hover {
+  background-color: rgba(0,0,0,0);
   color: white;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 80px;
-  width: 80px;
-  height: 80px;
-  margin-right: 10px;
-  background-color: rgb(24, 201, 177);
-  box-shadow: 0 0 7px rgb(148, 255, 48);
+
 }
 
 .content .contact {
@@ -141,16 +123,9 @@ a {
 }
 
 .content .contact:hover {
-  transform: rotate(360deg);
+  background-color: rgba(0,0,0,0);
   color: white;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 80px;
-  width: 80px;
-  height: 80px;
-  margin-right: 10px;
-  background-color: rgb(16, 187, 0);
-  box-shadow: 0 0 7px red;
+
 }
 
 .footer {
@@ -168,11 +143,349 @@ a {
 }
 
 .copy{
-  border: 2px solid white;
   border-radius: 10%;
   padding-right: 5px;
   padding-left: 5px;
+  padding-bottom: 10px;
 }
+
+.overlay {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0);
+  z-index: 9999;
+  text-align: center;
+  line-height: 150%;
+}
+
+#project {
+  line-height: 0;
+  padding-top: 20px;
+}
+
+.overlay:target {
+  width: 50vw;
+  height: 50vh;
+  background-color: rgba(225, 225, 225, .97);
+  margin-top: 10%;
+  margin-left: 25%;
+  animation: zoomfade 0.7s;
+}
+
+.close {
+  opacity: 0;
+}
+
+.overlay:target .close:hover{
+  color: black;
+}
+
+.overlay:target .close {
+  animation: zoomfade .3s forwards;
+  position: absolute;
+  right: 0;
+  padding-right: 5px;
+  font-size: 40px;
+  color: white;
+  text-decoration: none;
+  color: rgba(0,0,0,.3);
+}
+
+/*animation */
+
+@keyframes zoomfade {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+/*Slider*/
+  .slider {
+    border: 3px solid #ffffff;
+    position: relative;
+    overflow: hidden;
+    background: #efefef;
+  }
+
+  .slider {
+    margin: 20px auto;
+    width: 90%;
+    height: 80%;
+  }
+
+  .isi-slider img {
+    width: 300px;
+    height: 200px;
+    float: left;
+  }
+
+  .isi-slider {
+    position: absolute;
+    width: 3900px;
+
+    /*pengaturan durasi lama tampil gambar bisa di atur di bawah ini*/
+    animation-name: slider;
+    animation-duration: 16s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    -webkit-animation-name: slider;
+    -webkit-animation-duration: 16s;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-name: slider;
+    -moz-animation-duration: 16s;
+    -moz-animation-timing-function: ease-in-out;
+    -moz-animation-iteration-count: infinite;
+    -o-animation-name: slider;
+    -o-animation-duration: 16s;
+    -o-animation-timing-function: ease-in-out;
+    -o-animation-iteration-count: infinite;
+  }
+
+  /*saat gambar di hover oleh cursor mouse maka berhenti slide*/
+  .isi-slider:hover {
+    -webkit-animation-play-state: paused;
+    -moz-animation-play-state: paused;
+    -o-animation-play-state: paused;
+    animation-play-state: paused;
+  }
+}
+
+.isi-slider img {
+  float: right;
+}
+
+.slider:after {
+  font-size: 150px;
+  position: absolute;
+  z-index: 12;
+  color: rgba(255, 255, 255, 0);
+  left: 300px;
+  top: 80px;
+  -webkit-transition: 1s all ease-in-out;
+  -moz-transition: 1s all ease-in-out;
+  transition: 1s all ease-in-out;
+}
+
+.slider:hover:after {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+@-moz-keyframes slider {
+  0% {
+    left: 0;
+    opacity: 0;
+  }
+  2% {
+    opacity: 1;
+  }
+  20% {
+    left: 0;
+    opacity: 1;
+  }
+  21% {
+    opacity: 0;
+  }
+  24% {
+    opacity: 0;
+  }
+  25% {
+    left: -768px;
+    opacity: 1;
+  }
+  45% {
+    left: -768px;
+    opacity: 1;
+  }
+  46% {
+    opacity: 0;
+  }
+  48% {
+    opacity: 0;
+  }
+  50% {
+    left: -1536px;
+    opacity: 1;
+  }
+  70% {
+    left: -1536px;
+    opacity: 1;
+  }
+  72% {
+    opacity: 0;
+  }
+  74% {
+    opacity: 0;
+  }
+  75% {
+    left: -2304px;
+    opacity: 1;
+  }
+  95% {
+    left: -2304px;
+    opacity: 1;
+  }
+  97% {
+    left: -2304px;
+    opacity: 0;
+  }
+  100% {
+    left: 0;
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes slider {
+  0% {
+    left: 0;
+    opacity: 0;
+  }
+  2% {
+    opacity: 1;
+  }
+  20% {
+    left: 0;
+    opacity: 1;
+  }
+  21% {
+    opacity: 0;
+  }
+  24% {
+    opacity: 0;
+  }
+  25% {
+    left: -768px;
+    opacity: 1;
+  }
+  45% {
+    left: -768px;
+    opacity: 1;
+  }
+  46% {
+    opacity: 0;
+  }
+  48% {
+    opacity: 0;
+  }
+  50% {
+    left: -1536px;
+    opacity: 1;
+  }
+  70% {
+    left: -1536px;
+    opacity: 1;
+  }
+  72% {
+    opacity: 0;
+  }
+  74% {
+    opacity: 0;
+  }
+  75% {
+    left: -2304px;
+    opacity: 1;
+  }
+  95% {
+    left: -2304px;
+    opacity: 1;
+  }
+  97% {
+    left: -2304px;
+    opacity: 0;
+  }
+  100% {
+    left: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes slider {
+  0% {
+    left: 0;
+    opacity: 0;
+  }
+  2% {
+    opacity: 1;
+  }
+  20% {
+    left: 0;
+    opacity: 1;
+  }
+  21% {
+    opacity: 0;
+  }
+  24% {
+    opacity: 0;
+  }
+  25% {
+    left: -768px;
+    opacity: 1;
+  }
+  45% {
+    left: -768px;
+    opacity: 1;
+  }
+  46% {
+    opacity: 0;
+  }
+  48% {
+    opacity: 0;
+  }
+  50% {
+    left: -1536px;
+    opacity: 1;
+  }
+  70% {
+    left: -1536px;
+    opacity: 1;
+  }
+  72% {
+    opacity: 0;
+  }
+  74% {
+    opacity: 0;
+  }
+  75% {
+    left: -2304px;
+    opacity: 1;
+  }
+  95% {
+    left: -2304px;
+    opacity: 1;
+  }
+  97% {
+    left: -2304px;
+    opacity: 0;
+  }
+
+  100% {
+    left: 0;
+    opacity: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body{
+    padding-top: 30px;
+  }
+
+  .slider{
+    display: none;
+  }
+  .map{
+    display: none;
+  }
 
 /* responsif Breakpoint */
 @media screen and (max-width: 500px) {
